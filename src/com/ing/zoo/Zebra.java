@@ -2,25 +2,53 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Zebra {
-    public String name;
-    public String helloText;
-    public String eatText;
-    public String trick;
+public class Zebra implements Animal, Herbivore{
+    private String name;
+    private String helloText;
+    private String eatText;
+    private String trick;
 
-    public Zebra()
-    {
+    public Zebra(String name) {
+        this.name = name;
+        this.helloText = sayHello();
+        this.eatText = eatLeaves();
+        this.trick = performTrick();
     }
 
-    public void sayHello()
+    public String sayHello()
     {
         helloText = "zebra zebra";
-        System.out.println(helloText);
+        return helloText;
     }
 
-    public void eatLeaves()
+    public String eatLeaves()
     {
         eatText = "munch munch zank yee bra";
-        System.out.println(eatText);
+        return eatText;
+    }
+
+    public Zebra(String name, String helloText, String eatText) {
+        this.name = name;
+        this.helloText = helloText;
+        this.eatText = eatText;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String performTrick()
+    {
+        Random random = new Random();
+        int rnd = random.nextInt(2);
+        if(rnd == 0)
+        {
+            trick = "gallops";
+        }
+        else
+        {
+            trick = "trots";
+        }
+        return trick;
     }
 }

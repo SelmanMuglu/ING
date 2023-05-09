@@ -2,29 +2,37 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Tiger {
+public class Tiger implements Animal, Carnivore{
     public String name;
     public String helloText;
     public String eatText;
     public String trick;
 
-    public Tiger()
-    {
+    public Tiger(String name) {
+        this.name = name;
+        this.helloText = sayHello();
+        this.eatText = eatMeat();
+        this.trick = performTrick();
     }
 
-    public void sayHello()
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    public String sayHello()
     {
         helloText = "rraaarww";
-        System.out.println(helloText);
+        return helloText;
     }
 
-    public void eatMeat()
+    public String eatMeat()
     {
         eatText = "nomnomnom oink wubalubadubdub";
-        System.out.println(eatText);
+        return eatText;
     }
 
-    public void performTrick()
+    public String performTrick()
     {
         Random random = new Random();
         int rnd = random.nextInt(2);
@@ -36,6 +44,6 @@ public class Tiger {
         {
             trick = "scratches ears";
         }
-        System.out.println(trick);
+        return trick;
     }
 }

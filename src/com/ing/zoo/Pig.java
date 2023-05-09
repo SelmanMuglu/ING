@@ -2,35 +2,43 @@ package com.ing.zoo;
 
 import java.util.Random;
 
-public class Pig {
-    public String name;
-    public String helloText;
-    public String eatText;
-    public String trick;
+public class Pig implements Animal, Carnivore, Herbivore{
+    private String name;
+    private String helloText;
+    private String eatText;
+    private String trick;
 
-    public Pig()
-    {
+    public Pig(String name) {
+        this.name = name;
+        this.helloText = sayHello();
+        this.eatText = eatLeaves();
+        this.trick = performTrick();
     }
 
-    public void sayHello()
+    public String getName(){
+        return name;
+    }
+
+
+    public String sayHello()
     {
         helloText = "splash";
-        System.out.println(helloText);
+        return helloText;
     }
 
-    public void eatLeaves()
+    public String eatLeaves()
     {
         eatText = "munch munch oink";
-        System.out.println(eatText);
+        return eatText;
     }
 
-    public void eatMeat()
+    public String eatMeat()
     {
         eatText = "nomnomnom oink thx";
-        System.out.println(eatText);
+        return eatText;
     }
 
-    public void performTrick()
+    public String performTrick()
     {
         Random random = new Random();
         int rnd = random.nextInt(2);
@@ -42,6 +50,6 @@ public class Pig {
         {
             trick = "runs in circles";
         }
-        System.out.println(trick);
+        return trick;
     }
 }
