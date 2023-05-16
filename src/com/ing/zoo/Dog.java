@@ -4,29 +4,22 @@ import java.util.Random;
 
 public class Dog implements Animal, Carnivore {
 
-    private String name;
-    private String helloText;
-    private String eatText;
-    private String trick;
+    private final String name;
 
 
     public Dog(String name) {
         this.name = name;
-        this.helloText = sayHello();
-        this.eatText = eatMeat();
-        this.trick = performTrick();
+
     }
 
     public String sayHello()
     {
-        helloText = "wooooof woof";
-        return helloText;
+        return "wooooof woof";
     }
 
     public String eatMeat()
     {
-        eatText = "yum yummmm";
-        return eatText;
+        return "yum yummmm";
     }
 
 
@@ -38,6 +31,7 @@ public class Dog implements Animal, Carnivore {
     {
         Random random = new Random();
         int rnd = random.nextInt(2);
+        String trick;
         if(rnd == 0)
         {
             trick = "jumps through hoop";
